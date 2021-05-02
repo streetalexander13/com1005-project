@@ -36,10 +36,20 @@ public abstract class Search {
       System.out.println("-------------------------");
       System.out.println("iteration no " + numIteration);
       System.out.println("open is");
-      for (SearchNode nn : open) {
-        String nodestr = nn.toString();
-        System.out.println(nodestr);
+      if (numIteration > 100000) {
+    	  System.exit(0);
       }
+      if (numIteration < 10) {
+    	  for (SearchNode nn : open) {
+    		  String nodestr = nn.toString();
+    		  System.out.println(nodestr);
+    	  }
+      }
+     // System.out.println("Closed is");
+      //for (SearchNode nn : closed) {
+        //  String nodestr = nn.toString();
+          //System.out.println(nodestr);
+        //}
 
       selectNode(strat); // change from search1 -selectNode selects next node given strategy,
       // makes it currentNode & removes it from open
