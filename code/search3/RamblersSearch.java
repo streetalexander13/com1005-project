@@ -2,22 +2,19 @@
 public class RamblersSearch extends Search{
 
 	  private TerrainMap map; //map we're searching
-	  private int xGoal; //goal city
-	  private int yGoal; //goal city
+	  private Coords goal; //goal city
 	
-	public RamblersSearch(TerrainMap tm, int x, int y) {
+	public RamblersSearch(TerrainMap tm, Coords cord) {
 		// TODO Auto-generated constructor stub
-		xGoal = x;
-		yGoal = y;
+		goal = cord;
 		map = tm;
-		
 		
 	}
 	  public TerrainMap getMap(){
 	    return map;
 	  }
 	  public Coords getGoal(){
-	    return (new Coords(5, 8));
+	    return goal;
 	  }
 
 

@@ -44,15 +44,16 @@ public class RamblersState extends SearchState{
 	    for (Coords l : path) {
 	    	
 	    	Coords scord = l;
-	    	int heightc = map.getTmap()[cords.getx()][cords.gety()];
-	    	int heightd = map.getTmap()[l.getx()][l.gety()];
-	    	int cost = 1 + (heightd - heightc);
+	    	int heightc = map.getTmap()[cords.gety()][cords.getx()];
+	    	int heightd = map.getTmap()[l.gety()][l.getx()];
+	    	int cost = (heightd - heightc);
 	 
 	    	if (heightd <= heightc) {
-	    		cost = 1;
+	    		cost = 0;
 	    	}
 	       	cost = (cost < 0 ? -cost : cost);
-	    	System.out.println(heightc + "-" + heightd + "-" + cost + scord.getx() + "--" + scord.gety());
+	       	cost = cost + 1;
+	    	//System.out.println(heightc + "-" + heightd + "-" + cost +"--"+ scord.getx() + "--" + scord.gety());
 	      succs.add((SearchState) new RamblersState(scord, cost));
 	    }
 	    //System.out.println(succs);
@@ -65,7 +66,7 @@ public class RamblersState extends SearchState{
 	    return (this.toString().compareTo(ms2.toString()) == 0);
 	}
 	
-	 private Coords getCords() {
+	 public Coords getCords() {
 		// TODO Auto-generated method stub
 		return cords;
 	}
