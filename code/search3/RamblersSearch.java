@@ -1,4 +1,3 @@
-
 public class RamblersSearch extends Search{
 
 	  private TerrainMap map; //map we're searching
@@ -16,6 +15,5 @@ public class RamblersSearch extends Search{
 	  public Coords getGoal(){
 	    return goal;
 	  }
-
 
 }

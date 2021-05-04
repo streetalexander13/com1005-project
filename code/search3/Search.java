@@ -9,7 +9,7 @@ import java.util.*;
 public abstract class Search {
 
   protected SearchNode initNode; // initial node
-  public SearchNode currentNode; // current node
+  protected SearchNode currentNode; // current node
   protected SearchNode old_node; // node found on open with same state as new one
   protected ArrayList<SearchNode> open; // open - list of SearchNodes
   protected ArrayList<SearchNode> closed; // closed
@@ -33,26 +33,20 @@ public abstract class Search {
     while (!open.isEmpty()) {
 
       // print contents of open
-     // System.out.println("-------------------------");
-    //  System.out.println(numIteration);
+    //  System.out.println("-------------------------");
+      //System.out.println("iteration no " + numIteration);
       //System.out.println("open is");
-     if (numIteration%10000 == 0) {
-    	   System.out.println(numIteration);
-    	   System.out.println("Current node: " + currentNode.toString());
-    	   
-     }
-      if (numIteration < 10) {
-    	  for (SearchNode nn : open) {
-    		  String nodestr = nn.toString();
-    		//  System.out.println(nodestr);
-    	  }
-      }
-     // System.out.println("Closed is");
-      //for (SearchNode nn : closed) {
-        //  String nodestr = nn.toString();
-          //System.out.println(nodestr);
-        //}
-
+      //for (SearchNode nn : open) {
+       // String nodestr = nn.toString();
+        //System.out.println(nodestr);
+      //}
+    	////For Debuginh
+    	if (numIteration%1000 == 0) {
+    		
+    		System.out.println(numIteration);
+    	}
+    	
+    	////
       selectNode(strat); // change from search1 -selectNode selects next node given strategy,
       // makes it currentNode & removes it from open
      // System.out.println("Current node: " + currentNode.toString());

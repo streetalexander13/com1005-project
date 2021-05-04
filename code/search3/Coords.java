@@ -14,7 +14,7 @@ public class Coords {
   /**
    * constructor, given y & x
    */
-//Swapped x and y
+
   public Coords(int yin, int xin) {
     x = xin;
     y = yin;
