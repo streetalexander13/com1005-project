@@ -1,11 +1,10 @@
 
 public class RamblersSearch extends Search{
 
-	  private TerrainMap map; //map we're searching
-	  private Coords goal; //goal city
+	  private TerrainMap map; 
+	  private Coords goal; 
 	
 	public RamblersSearch(TerrainMap tm, Coords cord) {
-		// TODO Auto-generated constructor stub
 		goal = cord;
 		map = tm;
 		

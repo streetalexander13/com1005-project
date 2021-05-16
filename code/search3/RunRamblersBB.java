@@ -8,10 +8,10 @@ public class RunRamblersBB {
 		 TerrainMap tm = new TerrainMap("/Users/alexanderstreet/Downloads/COM1005_Assignment_2021/code/search3/diablo.pgm");
 		
 		//Goal State
-	    RamblersSearch searcher = new RamblersSearch(tm, new Coords(200, 200));
+	    RamblersSearch searcher = new RamblersSearch(tm, new Coords(87, 34));
 	    
 	    //Initial State
-	    SearchState initState = (SearchState) new RamblersState(new Coords(0, 0), 0);
+	    SearchState initState = (SearchState) new RamblersState(new Coords(200, 87), 0);
 
 	    
 	    String res_bb = searcher.runSearch(initState, "branchAndBound");

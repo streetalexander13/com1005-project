@@ -8,14 +8,13 @@ public class RamblersState extends SearchState{
 	
 	public RamblersState(Coords cord, int lc, int est) {
 		cords = cord;
-		//System.out.println("Cords -  X :" + cords.getx() + " Y : " + cords.gety());
 		localCost=lc;
 		estimatedCost = est;
 		
 	}
-	  public int getestRemCost() {
+	public int getestRemCost() {
 		    return estimatedCost;
-		  }
+	}
 
 	@Override
 	boolean goalPredicate(Search searcher) {
@@ -60,10 +59,8 @@ public class RamblersState extends SearchState{
 	    	}
 	       	cost = (cost < 0 ? -cost : cost);
 	       	cost = cost + 1;
-	    	//System.out.println(heightc + "-" + heightd + "-" + cost +"--"+ scord.getx() + "--" + scord.gety() + "--" + estimateCostCal(scord.gety(), scord.getx(), searcher));
-	      succs.add((SearchState) new RamblersState(scord, cost, estimateCostCal(scord.gety(), scord.getx(), searcher)));
+	      succs.add((SearchState) new RamblersState(scord, cost, estimateCostCal(scord.gety(), scord.getx(), searcher, map, heightd)));
 	    }
-	    //System.out.println(succs);
 	    return succs;
 	}
 
@@ -74,18 +71,27 @@ public class RamblersState extends SearchState{
 	}
 	
 	 public Coords getCords() {
-		// TODO Auto-generated method stub
 		return cords;
 	}
 	 
 	 
-	 public int estimateCostCal(int y, int x, Search searcher){
+	 public int estimateCostCal(int y, int x, Search searcher, TerrainMap map, int heightd){
 		 RamblersSearch rsearcher = (RamblersSearch) searcher;
 		 Coords tar = rsearcher.getGoal();
-		 int cost = tar.getx() - x;
+		 
+		 //Add below line for use of height metric
+		 //int cost = map.getTmap()[tar.gety()][tar.getx()] - heightd;
+		 //cost = (cost < 0 ? -cost : cost);
+		 
+		 
+		 int cost = (x-tar.getx());
 		 cost = (cost < 0 ? -cost : cost);
-		 cost = cost + (tar.gety()-y);
+		 cost = cost +  (y-tar.gety());
 		 cost = (cost < 0 ? -cost : cost);
+		 
+		 //Use below line to use euclidian distance
+		 //int cost =  (int) Math.sqrt(Math.pow((y-tar.gety()), 2) + Math.pow((x-tar.getx()), 2));
+		 
 		 return cost;
 	 }
 	 
